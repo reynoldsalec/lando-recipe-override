@@ -1,0 +1,13 @@
+name: document-automation
+recipe: laravel
+config:
+    php: '8.2'
+    via: nginx
+    database: mysql:5.7
+    webroot: public
+    xdebug: 'debug,develop'
+
+services:
+    appserver:
+        overrides:
+            build: .
