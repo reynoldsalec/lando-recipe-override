@@ -1,3 +1,9 @@
-FROM php:8.2-fpm-bullseye
+# syntax = edrevo/dockerfile-plus
 
-ENV custom=custom
+INCLUDE+ Dockerfile.prod
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN pecl install xdebug pcov
+
+ENV custom=dev
